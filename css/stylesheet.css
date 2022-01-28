@@ -1,0 +1,368 @@
+/* Name: Kyle Jones
+    Date: 8/26/2021*/
+    /*<!----------------------------------------------------------------------------------------------------------------
+--
+#Original Author: Kyle Jones                                      #
+#Date Created: 8/27/2021                                        #
+#Version:1                                                 #
+#Date Last Modified: 9/8/2021                                #
+#Modified by: Kyle Jones                                          #
+#Modification log: version #2                                   #
+ --
+ source; avatar hoodie
+ https://monostache.storenvy.com/collections/886591-jewelry-necklaces/products/9923713-element-benders-single-necklace-handmade-avatar-the-last-airbender-legen
+ source; aang hooded tank top
+https://hoodieblast.com/collections/cartoon-clothing/products/avatar-state-aang-hooded-tank
+source; necklaces of the 4 elements
+https://www.etsy.com/listing/267458500/avatar-the-last-airbender-all-four
+source; avatar decor
+https://www.amazon.com/avatar-last-airbender-decor/s?k=avatar+the+last+airbender+decor
+source;avatar tapestry
+https://www.amazon.com/LHYSPORT-Airbender-Tapestry-Decorations-Printing/dp/B08K4BTK3L 
+source; hooded tank top of avatar
+https://tinohouse.com/aang-hooded-tank-cute-aang-avatar-last-airbender-clothing-art2323-3d-all-over-print-hoodie-860/
+
+#Original Author: Kyle Jones                                      #
+#Date Created: 8/27/2021                                        #
+#Version:1                                                 #
+#Date Last Modified: 9/17/2021                                #
+#Modified by: Kyle Jones                                          #
+#Modification log: version #3
+
+Edited element tags with new content and added media query!
+
+
+#Original Author: Kyle Jones                                      #
+#Date Created: 8/27/2021                                        #
+#Version:1                                                 #
+#Date Last Modified: 9/22/2021                                #
+#Modified by: Kyle Jones                                          #
+#Modification log: version #4
+
+changed my background image in my header to showcase a picture!
+------------------------------------------------------------------------------------------------------------------>
+
+/*HTML STYLES*/
+html {
+    margin: 0;
+    overflow: hidden;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*BODY STYLES*/
+body{
+    margin: 0;
+    background-image:linear-gradient(#dc8c243d,#fcdc7b,#5c3026), url('../images/map1.jpg');
+}
+ 
+    
+/* HEADER STYLES*/  
+h1{
+    font-family: 'Architects Daughter', cursive;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+
+header .jumbotron{ 
+background-image:url('../images/kaohsiung-4081259_1920\ \(2\).jpg' );
+background-position: center center;
+width: 100%;
+background-repeat: no-repeat;
+height: 200px;
+padding-top: 100px;
+}
+
+
+header .jumbotron h1{
+color: black;
+text-shadow: 2px 3px #dbeca9;
+font-family: 'Lobster', cursive;
+}
+
+ /* Navigation Bar*/
+
+nav{
+background-image:linear-gradient(#dc8c243d,#fcdc7b,#5c302698), url('../images/map1.png');
+text-align: left;
+text-decoration: none;
+color: white;
+}
+
+nav li{
+display: inline;
+padding: 0px;
+
+}
+nav a{
+    color: black;
+    font-size: 1.5em;
+}
+
+.title {
+    color:white;
+    font-size: 40px;
+}
+
+.nav-item a:hover{
+color: white;
+}
+/*MAIN  STYLES*/
+
+main{
+    margin: auto;
+    border-radius: 10%;
+    background-color: #9c6e29;
+    text-align: center;
+    border-style:double;
+    height: 600px;
+}
+
+main h2{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 1.5em;
+}
+
+main p{
+font-size: larger;
+}
+main ul{
+    list-style-type: none;
+}
+main li{
+    text-align: center;
+}
+
+main .fire p{
+    padding-right: 3em;
+    padding-top: 3em;
+}
+.caption h2{
+   font-size: 120%; 
+   padding: .5em 0;
+   float: left;
+}
+.description{
+    float:right;
+    font-family: 'Karla', sans-serif;
+    text-shadow: 4px 5px 4px rgb(61, 61, 61);
+    color: white;
+    font-size: 1.8em;
+    
+}
+
+#slides img {
+	display: none;
+    width: 80%;
+    margin: auto;
+    float: left;
+    height: 250px;
+    
+}
+
+#slides{
+    height: 200px;
+}
+
+/*#slides{
+    font-family: 'Architects Daughter', cursive;
+    float: left;
+}*/
+
+
+.fire{
+    border: 3px double white;
+    height: 480px;
+    width: 80%;
+    /*margin-left: auto;
+    margin-right: 100px;*/
+    margin: auto;
+    
+}
+
+
+/*FAQ'S page*/
+
+#faqs h2{
+    font-size: 2.5em;
+    cursor: pointer;
+    background-repeat: no-repeat; 
+    display: block;
+    margin-left: 50px;
+}
+
+#faqs a{
+    color: white;
+}
+#faqs p{
+    font-size: 1.5em;
+    color: black;
+}
+
+#faqs div li{
+    text-align: center;
+    font-size: 1.5em;
+    padding: 20px;
+}
+
+#faqs div{
+    display: none;
+
+}
+#faqs div.open{
+    display: block;
+}
+
+
+
+.page{
+    font-size: 1.3em;
+}
+
+.news{
+    font-size: 1.3em;
+
+}
+
+/* FORM STYLES*/
+
+fieldset{
+    margin:0 25%;
+}
+
+div ul li{
+    text-align: left;
+    
+}
+
+
+/* Hover and Focus*/
+
+a:focus a:hover{
+    color: white;
+}
+
+a.active{
+    color: white;
+}
+
+
+section{
+    padding: 0 5em;
+    text-align: center;
+}
+
+/* Accordion*/
+
+#accordion h3{
+    font-size: 1.7em;
+}
+
+#accordion p{
+    font-size: 1.5em;
+}
+
+#accordion li{
+    font-size: 1.2em;
+}
+
+#accordion{
+    padding: 1em;
+    
+}
+#water{
+    font-weight: bold;
+    -webkit-text-stroke-color: rgb(68, 97, 177);
+    -webkit-text-stroke-width: 1px;
+}
+#earth{
+    font-weight: bold;
+    -webkit-text-stroke-color: rgb(48, 139, 20);
+    -webkit-text-stroke-width: 1px;
+}
+#fire{
+    font-weight: bold;
+    -webkit-text-stroke-color: rgb(209, 58, 12);
+    -webkit-text-stroke-width: 1px;
+    
+}
+#air{
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: darkgray;
+}
+
+#radiobutton{
+    margin-left: 40%;
+}
+#submit {
+    background-color: darkgray;
+    border:none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 12px;
+    border-style: ridge;
+  }
+
+/* Media query's for different views*/
+
+/* mobile phone view*/
+@media  (min-width: 576px)and (max-width:767px) {
+    .fire {
+      max-width: 50px;
+    }
+    #slides img {
+        max-width: 20px;
+    }
+  }
+  /* Large phones*/
+  @media  (min-width: 768px) and (max-width:991px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  /* Tablet landscape*/
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  /*desktop views*/
+  @media (min-width: 1200px) {
+    
+    .container {
+      max-width: 1140px;
+    }
+  }
+
+
+/* FOOTER STYLES*/
+
+footer {
+    background-color:whitesmoke;
+     text-align: center;
+    padding: 1px 1px;
+    color: black;
+    font-size: 1.5em;
+    border-style: double black;
+    margin: auto;
+    }
+
+footer a{
+    color: white;
+    
+}
+footer p{
+    font-size: 18px;
+}
+
+
