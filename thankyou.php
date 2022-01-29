@@ -4,10 +4,29 @@ $email_address = filter_input(INPUT_POST, 'email_address');
 $phone = filter_input(INPUT_POST, 'phone');
 $country = filter_input(INPUT_POST, 'country');
 $contact = filter_input(INPUT_POST, 'contact');
+if ($contact == NULL) {
+$contact= 'N/A';}
+//}else if ($contact == 'text'){
+//    $contact = 2;
+//}else if ($contact == 'email'){
+//    $contact = 3;
+//}else if ($contact == 'mobile'){
+//    $contact = 4;
+//}else if ($contact == 'socialmedia'){
+//    $contacat = 5;
+//}else {
+//    $contact = 6;
+//}
 $terms = filter_input(INPUT_POST, 'terms');
+if ($terms == NULL){
+    $terms = 2;
+} else {
+    $terms = 1;
+}
 $comments = filter_input(INPUT_POST, 'comments');
 
-echo('Data: ' .$email_address . $phone. $country. $contact. $terms. $comments);
+echo('Data: ' .$email_address .$phone.$country.$contact.$terms.$comments);
+
 // validate input
 if ($email_address == null || $phone = null || $country == null ||
         $contact == null || $terms == null || $comments == null) {
@@ -29,7 +48,7 @@ if ($email_address == null || $phone = null || $country == null ||
    
    $query = 'INSERT INTO visit
 	(email_address, cell_phone, country, contact_me, terms_service, visit_msg, visit_date, employee_id)
-    VALUES (:email_address, :phone, :country, :contact, :terms, :comments), NOW(), 1)';
+    VALUES (:email_address, :phone, :country, :contact, :terms, :comments, NOW(), 1)';
    $statement = $db->prepare($query);
    $statement->bindValue(':email_address', $email_address);
    $statement->bindValue('phone', $phone);
