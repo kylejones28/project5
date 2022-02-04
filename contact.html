@@ -89,19 +89,19 @@ https://favicon.io/favicon-converter/
         <form action="thankyou.php" id="form" method="post">
             <div>
                 <label for="email_address">E-Mail:</label>
-                <input type="text" name="email_address" id="email_address">
+                <input type="text" name="email_address" id="email_address" required>
                 <span>*</span>
             </div>
             <br>
             <div>
                 <label for="phone">Mobile Phone:</label>
-                <input type="text" name="phone" id="phone">
+                <input type="text" name="phone" id="phone" required>
                 <span>*</span>
             </div>
             <br>
             <div>
                 <label for="country">Country:</label>
-                <select name="country" id="country">
+                <select name="country" id="country" required>
                     <option value="">Select a country</option>
                     <option>USA</option>
                     <option>Europe</option>
@@ -126,14 +126,14 @@ https://favicon.io/favicon-converter/
             <br>
             <div>
                 <label>Terms of Service:</label>
-                <input type="checkbox" name="terms" id="terms"
+                <input type="checkbox" name="terms" id="terms" required
                     value="yes"> I accept
                 <span>*</span>
             </div>
             <br>
             <div>
                 <label for="comments">Comments</label>
-                <textarea name="comments" id="comments"></textarea>
+                <textarea name="comments" id="comments" required></textarea>
                 <span>*</span>
                 
             </div>

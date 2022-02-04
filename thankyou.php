@@ -25,10 +25,10 @@ if ($terms == NULL){
 }
 $comments = filter_input(INPUT_POST, 'comments');
 
-echo('Data: ' .$email_address .$phone.$country.$contact.$terms.$comments);
+//echo('Data: ' .$email_address.$phone.$country.$contact.$terms.$comments);
 
 // validate input
-if ($email_address == null || $phone = null || $country == null ||
+if ($email_address == null || $phone == null || $country == null ||
         $contact == null || $terms == null || $comments == null) {
     $error = "Invalid input data. Check all fields and try agian.";
     echo "Form Data Error: " . $error;
@@ -37,7 +37,7 @@ if ($email_address == null || $phone = null || $country == null ||
     //data is valid,. define pdo & insert data.
    try {
        $dsn = 'mysql:host=localhost;dbname=wldesign';
-       $username = 'root';
+       $username = 'kj_jones28';
        $password = 'Pa$$w0rd';
        $db = new PDO($dsn,$username, $password);
    } catch (PDOException $ex) {
@@ -51,15 +51,15 @@ if ($email_address == null || $phone = null || $country == null ||
     VALUES (:email_address, :phone, :country, :contact, :terms, :comments, NOW(), 1)';
    $statement = $db->prepare($query);
    $statement->bindValue(':email_address', $email_address);
-   $statement->bindValue('phone', $phone);
-   $statement->bindValue('country', $country);
-   $statement->bindValue('contact', $contact);
-   $statement->bindValue('terms', $terms);
-   $statement->bindValue('comments', $comments);
+   $statement->bindValue(':phone', $phone);
+   $statement->bindValue(':country', $country);
+   $statement->bindValue(':contact', $contact);
+   $statement->bindValue(':terms', $terms);
+   $statement->bindValue(':comments', $comments);
    $statement->execute();
    $statement->closeCursor();
    
-   //echo('Data: ' .$email_address . $phone. $country. $contact. $terms. $comments);
+   //echo('After insert: ' .$email_address . $phone. $country. $contact. $terms. $comments);
 }
 ?>
 <!DOCTYPE html>
