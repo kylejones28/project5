@@ -1,3 +1,15 @@
+<?php
+
+ /*Date       User          Description
+ * -----  ------------ ------------------------------------
+ * 2/11/2022  Kyle Jones    INITIAL creation of listemployees.php
+*/
+require_once ('./model/database.php');
+require_once ('./model/employee.php');
+
+
+$employees = EmployeeDB::getEmployees();
+?>
 <!DOCTYPE html>
 <!--Name: Kyle Jones
 Date: 9/1/2021-->
@@ -51,7 +63,7 @@ https://favicon.io/favicon-converter/
 </head>
 <header>
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <h1>Order from the White Lotus</h1>
+        <h1>Order of the White Lotus</h1>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="home.html"> <img src="images/favicon-32x32.png"></a>
@@ -75,81 +87,28 @@ https://favicon.io/favicon-converter/
               <a class="nav-link" href="order.html">Order</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="admin.php"><h4>Admin</h4></a>
+              <a class="nav-link" href="admin.php">Admin</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="listemployees.php">Emp List</a>
           </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            
         </div>
     </nav>
 </header>
 <body>
     <main class="page">
-        <h1>Contact the Avatar</h1>
+        <h1>Employee list</h1>
+        <p>
+        <ul>
+            <?php foreach ($employees as $employee) : ?>
+            <li> <?php echo $employee->getLastName() . ',' 
+                    . $employee->getFirstName(); ?></li>
+            <?php endforeach; ?>
+        </ul>  
+        </p>
         <br>
-        <form action="thankyou.php" id="form" method="post">
-            <div>
-                <label for="email_address">E-Mail:</label>
-                <input type="text" name="email_address" id="email_address" required>
-                <span>*</span>
-            </div>
-            <br>
-            <div>
-                <label for="phone">Mobile Phone:</label>
-                <input type="text" name="phone" id="phone" required>
-                <span>*</span>
-            </div>
-            <br>
-            <div>
-                <label for="country">Country:</label>
-                <select name="country" id="country" required>
-                    <option value="">Select a country</option>
-                    <option>USA</option>
-                    <option>Europe</option>
-                    <option>Asia</option>
-                </select>
-                <span>*</span>
-            </div>
-            <br>
-            <div>
-                <label>Contact me by:</label>
-                <input type="radio" name="contact" id="text"
-                    value="text" checked>Text
-                <input type="radio" name="contact" id="email"
-                    value="email">Email
-                <input type="radio" name="contact" id="mobile"
-                    value="mobile" >Company phone
-                <input type="radio" name="contact" id="social media"
-                    value="socialmedia" >Social Media
-                <input type="radio" name="contact" id="none"
-                    value="none">Don't contact me
-            </div>
-            <br>
-            <div>
-                <label>Terms of Service:</label>
-                <input type="checkbox" name="terms" id="terms" required
-                    value="yes"> I accept
-                <span>*</span>
-            </div>
-            <br>
-            <div>
-                <label for="comments">Comments</label>
-                <textarea name="comments" id="comments" required></textarea>
-                <span>*</span>
-                
-            </div>
-            <div>
-                <label>&nbsp;</label>
-                <input type="submit" id="register" value="Register">
-                <input type="button" id="reset_form" value="Reset">
-            </div>
-        </div>
-        </form>
     </main>
     <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js%22%3E"></script>-->
  <!-- Optional JavaScript -->
@@ -163,7 +122,7 @@ https://favicon.io/favicon-converter/
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script> 
-    <!--!<script src="./js/contact.js"></script>-->
+    <script src="./js/contact.js"></script>
     <footer>
         <p>&copy; Copy rights reserved</p>
         <p>Order from the White Lotus</p>

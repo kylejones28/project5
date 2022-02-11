@@ -1,5 +1,10 @@
 <?php
-    
+  /* 
+ * Date       User          Description
+ * -----  ------------ ------------------------------------
+ * 2/11/2022  Kyle Jones    INITIAL creation of thankyou.php
+ *  */
+
 $email_address = filter_input(INPUT_POST, 'email_address');
 $phone = filter_input(INPUT_POST, 'phone');
 $country = filter_input(INPUT_POST, 'country');
@@ -36,28 +41,32 @@ if ($email_address == null || $phone == null || $country == null ||
 } else {
     //data is valid,. define pdo & insert data.
    try {
-       $dsn = 'mysql:host=localhost;dbname=wldesign';
-       $username = 'kj_jones28';
-       $password = 'Pa$$w0rd';
-       $db = new PDO($dsn,$username, $password);
+//       $dsn = 'mysql:host=localhost;dbname=wldesign';
+//       $username = 'kj_jones28';
+//       $password = 'Pa$$w0rd';
+//       $db = new PDO($dsn,$username, $password);
+      require_once ('./model/database.php');
+      require_once ('./model/visit.php');
+//      $db = Database::getDB();
+      addVisit($email_address, $phone, $country, $contact, $terms, $comments);
    } catch (PDOException $ex) {
        $error_message = $e->getMessage();
        echo 'DB Error: '. $error_message;
    } 
    // add to database  query | prepare | bind | execute | close
    
-   $query = 'INSERT INTO visit
-	(email_address, cell_phone, country, contact_me, terms_service, visit_msg, visit_date, employee_id)
-    VALUES (:email_address, :phone, :country, :contact, :terms, :comments, NOW(), 1)';
-   $statement = $db->prepare($query);
-   $statement->bindValue(':email_address', $email_address);
-   $statement->bindValue(':phone', $phone);
-   $statement->bindValue(':country', $country);
-   $statement->bindValue(':contact', $contact);
-   $statement->bindValue(':terms', $terms);
-   $statement->bindValue(':comments', $comments);
-   $statement->execute();
-   $statement->closeCursor();
+//   $query = 'INSERT INTO visit
+//	(email_address, cell_phone, country, contact_me, terms_service, visit_msg, visit_date, employee_id)
+//    VALUES (:email_address, :phone, :country, :contact, :terms, :comments, NOW(), 1)';
+//   $statement = $db->prepare($query);
+//   $statement->bindValue(':email_address', $email_address);
+//   $statement->bindValue(':phone', $phone);
+//   $statement->bindValue(':country', $country);
+//   $statement->bindValue(':contact', $contact);
+//   $statement->bindValue(':terms', $terms);
+//   $statement->bindValue(':comments', $comments);
+//   $statement->execute();
+//   $statement->closeCursor();
    
    //echo('After insert: ' .$email_address . $phone. $country. $contact. $terms. $comments);
 }
@@ -137,6 +146,12 @@ https://favicon.io/favicon-converter/
             </li>
             <li class="nav-item">
               <a class="nav-link" href="order.html">Order</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="admin.php">Admin</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="listemployees.php">Employee List</a>
           </li>
             </ul>
             

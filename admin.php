@@ -4,12 +4,14 @@
 //-----------------------------
 //Kyle      2/4/2022      Initial Deployment 
 //
+//Kyle      2/11/2022       Updating admin.php
+//
 //**********************
    try {
-       $dsn = 'mysql:host=localhost;dbname=wldesign';
-       $username = 'kj_jones28';
-       $password = 'Pa$$w0rd';
-       $db = new PDO($dsn,$username, $password);
+      require_once ('./model/database.php');
+      require_once ('./model/visit.php');
+      require_once ('./model/employee.php');
+       $db = Database::getDB();
    } catch (PDOException $ex) {
        $error_message = $e->getMessage();
        echo 'DB Error: '. $error_message;
@@ -33,21 +35,19 @@
        
    }
    try { //set query, prepare, bid if needed execute
-       $queryEmployee = 'Select * From employee';
-       $statement1 = $db->prepare($queryEmployee);
-       $statement1->execute();
-       $employees = $statement1;
+       $employees = EmployeeDB::getEmp();
+       $visits = getVisitByEmp($employee_id);
        
-       $queryVisit = 'SELECT * 
-        FROM visit
-        JOIN employee
-        ON visit.employee_id = employee.employee_id
-        WHERE employee.employee_id =  :employee_id
-        ORDER BY visit_date';
-       $statement2 = $db->prepare($queryVisit);
-       $statement2->bindValue(":employee_id", $employee_id);
-       $statement2->execute();
-       $visits = $statement2;
+//       $queryVisit = 'SELECT * 
+//        FROM visit
+//        JOIN employee
+//        ON visit.employee_id = employee.employee_id
+//        WHERE employee.employee_id =  :employee_id
+//        ORDER BY visit_date';
+//       $statement2 = $db->prepare($queryVisit);
+//       $statement2->bindValue(":employee_id", $employee_id);
+//       $statement2->execute();
+//       $visits = $statement2;
        
    } catch (PDOException $ex) {
       $error_message = $e->getMessage();
@@ -57,11 +57,12 @@
     //echo ('Starting delete logic.');
     $visit_id = filter_input(INPUT_POST, 'visit_id', FILTER_VALIDATE_INT);
     $employee_id = filter_input($INPUT_GET, 'employee_id', FILTER_VALIDATE_INT);
-    $queryDelete = 'Delete FROM visit Where visit_id = :visit_id';
-    $statement3 = $db->prepare($queryDelete);
-    $statement3->bindValue(":visit_id", $visit_id);
-    $statement3->execute();
-    $statement3->closeCursor();
+//    $queryDelete = 'Delete FROM visit Where visit_id = :visit_id';
+    delVisit($visit_id);    
+//    $statement3 = $db->prepare($queryDelete);
+//    $statement3->bindValue(":visit_id", $visit_id);
+//    $statement3->execute();
+//    $statement3->closeCursor();
     header("Location: admin.php?employee_id=$employee_id");
 
 }
@@ -143,6 +144,12 @@ https://favicon.io/favicon-converter/
             <li class="nav-item">
               <a class="nav-link" href="order.html">Order</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="admin.php"><h4>Admin</h4></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="listemployees.php">Emp List</a>
+          </li>
             </ul>
             
         </div>
@@ -199,11 +206,6 @@ https://favicon.io/favicon-converter/
             </tr>
             <?php endforeach; ?>
         </table>
-        
-            
-        
-        
-        
         <p>Plan for Project 3: 1. Read employee data 2. Read visit data 3. Add for loop in body to create employee anchor links 
             4. Add for loop in body to display visit info by employee 
             5. Add the correct PHP to showcase data? 6. Add if or else statements if needed to program data 7. Collect data for dates and times of employees
