@@ -15,6 +15,7 @@ class Database {
     private function __construct() {}
 
     public static function getDB () {
+        
         if (!isset(self::$db)) {
             try {
                 self::$db = new PDO(self::$dsn,

@@ -120,7 +120,7 @@ main{
     background-color: #9c6e29;
     text-align: center;
     border-style:double;
-    height: 600px;
+    /*height: 600px;*/
 }
 
 main h2{
@@ -218,15 +218,37 @@ main .fire p{
     display: block;
 }
 
-
-
-.page{
-    font-size: 1.3em;
+.customM1container{
+    margin-bottom: 500px;
+    font-size: 1.5em;
 }
+
+.containerpage{
+    font-size: 1.2em;
+    text-align: center;
+    padding-right: 100px;
+}
+
+.person{
+    color:white;
+}
+
 
 .news{
     font-size: 1.3em;
 
+}
+/* Scroll feature*/
+
+div.scroll{
+    width: 1000px;
+    height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    padding: 100px;
+    font-size: 1.2em;
+    padding-top:1px;
 }
 
 /* FORM STYLES*/

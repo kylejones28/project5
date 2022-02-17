@@ -8,6 +8,8 @@
 //
 //**********************
    try {
+      require_once ('./util/secure_conn.php');
+      require_once ('./util/valid_admin.php');
       require_once ('./model/database.php');
       require_once ('./model/visit.php');
       require_once ('./model/employee.php');
@@ -157,6 +159,7 @@ https://favicon.io/favicon-converter/
 </header>
 <body>
     <main class="customM1 container">
+    <div class="scroll">
         <section class="container rounded mt-5 p-5">
         <h1>Admin</h1>
         <h3>Select an employee to view the assigned visit information. </h3>
@@ -164,7 +167,7 @@ https://favicon.io/favicon-converter/
             <ul style="list-style-type: none; ">
                 <?php foreach ($employees as $employee) : ?>
                 <li>
-                    <a href="?employee_id=<?php echo $employee['employee_id'];  ?>">
+                    <a class="person"href="?employee_id=<?php echo $employee['employee_id'];  ?>">
                         <?php  echo $employee['first_name'] . '' 
                         .$employee['last_name']; ?>
                     </a>
@@ -206,13 +209,13 @@ https://favicon.io/favicon-converter/
             </tr>
             <?php endforeach; ?>
         </table>
-        <p>Plan for Project 3: 1. Read employee data 2. Read visit data 3. Add for loop in body to create employee anchor links 
+<!--        <p>Plan for Project 3: 1. Read employee data 2. Read visit data 3. Add for loop in body to create employee anchor links 
             4. Add for loop in body to display visit info by employee 
             5. Add the correct PHP to showcase data? 6. Add if or else statements if needed to program data 7. Collect data for dates and times of employees
             7. Add correct functions to display data  8. Collect visitor comments by employee
             9. Add a update or delete for visitors comments on the page 10. Fix all errors before final form is posted
             11. Double check for mistakes. /p>
-        <br>
+        <br>-->
         </section>
     </main>
     <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js%22%3E"></script>-->
@@ -232,5 +235,6 @@ https://favicon.io/favicon-converter/
         <p>&copy; Copy rights reserved</p>
         <p>Order from the White Lotus</p>
     </footer> 
+    </div>
 </body>
 </html>

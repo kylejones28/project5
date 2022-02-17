@@ -4,11 +4,14 @@
  * -----  ------------ ------------------------------------
  * 2/11/2022  Kyle Jones    INITIAL creation of listemployees.php
 */
+require_once ('./util/secure_conn.php');
+require_once ('./util/valid_admin.php');
 require_once ('./model/database.php');
 require_once ('./model/employee.php');
 
 
 $employees = EmployeeDB::getEmployees();
+//$employees = EmployeeDB::getEmployeesAsObjects();
 ?>
 <!DOCTYPE html>
 <!--Name: Kyle Jones
@@ -98,17 +101,16 @@ https://favicon.io/favicon-converter/
     </nav>
 </header>
 <body>
-    <main class="page">
+    <div class="scroll">
+    <main class="container page">
         <h1>Employee list</h1>
-        <p>
         <ul>
             <?php foreach ($employees as $employee) : ?>
             <li> <?php echo $employee->getLastName() . ',' 
                     . $employee->getFirstName(); ?></li>
             <?php endforeach; ?>
-        </ul>  
-        </p>
-        <br>
+        </ul>
+    </div>
     </main>
     <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js%22%3E"></script>-->
  <!-- Optional JavaScript -->
